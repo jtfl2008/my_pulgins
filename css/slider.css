@@ -1,0 +1,85 @@
+@charset "UTF-8";
+/**
+ * 
+ * @authors 董江龙 (279110347@qq.com)
+ * @date    2016-05-30 
+ * @version 1.0.0
+ */
+/* 选项卡 */
+.slider {
+    position: relative;
+    width: 670px;
+    height: 200px;
+    margin: 50px auto;
+    overflow: hidden;
+}
+
+.slider .slider_items {
+    position: absolute;
+}
+
+.slider .slider_items li {
+    /*  position: absolute; 
+           top: 0; 
+           left: 0; */
+    /* display: none; */
+    background: #ffc;
+    width: 670px;
+    height: 200px;
+    float: left;
+}
+
+.slider .navs {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    font-size: 0;
+    width: 100%;
+    text-align: center;
+}
+
+.slider .navs li {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    font-size: 16px;
+    background-color: #666;
+    color: #fff;
+    text-align: center;
+    line-height: 20px;
+    border-radius: 50%;
+    margin: 0 3px;
+    cursor: pointer;
+}
+
+.slider .navs li:hover,
+.slider .navs li.active {
+    background-color: #a00;
+}
+
+.slider .btn {
+    position: absolute;
+    top: 50%;
+    width: 30px;
+    height: 60px;
+    margin-top: -30px;
+    background: rgba(0, 0, 0, .5);
+    color: #fff;
+    text-align: center;
+    line-height: 60px;
+    font-size: 40px;
+    /* display: none; */
+}
+
+.slider:hover .btn {
+    display: block;
+    cursor: pointer;
+}
+
+.slider .prev {
+    left: 0;
+}
+
+.slider .next {
+    right: 0;
+}

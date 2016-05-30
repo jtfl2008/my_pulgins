@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <title>插件</title>
+    <link href="css/global.css" rel="stylesheet" type="text/css">
+    <link href="css/tabs.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="js/tabs.js"></script>
+</head>
+
+<body>
+    <!-- 选项卡 -->
+    <div class="tabs">
+        <ul class="tab_meuns clearfix">
+            <li class="tab_meun current">tab_1</li>
+            <li class="tab_meun">tab_2</li>
+            <li class="tab_meun">tab_3</li>
+        </ul>
+        <div class="tab_cons">
+            <div class="tab_con">tab_con_1</div>
+            <div class="tab_con">tab_con_2</div>
+            <div class="tab_con">tab_con_3</div>
+        </div>
+    </div>
+    <div class="tabs">
+        <ul class="tab_meuns clearfix">
+            <li class="tab_meun current">tab_1</li>
+            <li class="tab_meun">tab_2</li>
+            <li class="tab_meun">tab_3</li>
+        </ul>
+        <div class="tab_cons">
+            <div class="tab_con">tab_con_1</div>
+            <div class="tab_con">tab_con_2</div>
+            <div class="tab_con">tab_con_3</div>
+        </div>
+    </div>
+    <div class="tabs">
+        <ul class="tab_meuns clearfix">
+            <li class="tab_meun current">tab_1</li>
+            <li class="tab_meun">tab_2</li>
+            <li class="tab_meun">tab_3</li>
+        </ul>
+        <div class="tab_cons">
+            <div class="tab_con">tab_con_1</div>
+            <div class="tab_con">tab_con_2</div>
+            <div class="tab_con">tab_con_3</div>
+        </div>
+    </div>
+    <div class="drag" style="width:100px;height:100px;background:#f00;position:absolute;"></div>
+    <div class="drag" style="width:100px;height:100px;background:#f00;position:absolute;"></div>
+    <div class="drag" style="width:100px;height:100px;background:#f00;position:absolute;"></div>
+    <script>
+        $(function(){
+            $(".tabs").tabs();
+            $(".drag").drag();
+            
+        })
+    </script>
+
+    
+</body>
+
+</html>

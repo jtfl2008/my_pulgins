@@ -1,0 +1,218 @@
+@charset "utf-8";
+/*CSS reset*/
+body,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,form,input,textarea,select,p,span,img,th,td{font:14px/24px  "Microsoft YaHei",Helvetica, Tahoma, Arial, STXihei, SimSun,  sans-serif; margin:0; padding:0; vertical-align: baseline; color: #333;-moz-osx-font-smoothing: grayscale;-webkit-font-smoothing: antialiased;text-rendering: optimizeLegibility;}
+/*html5*/
+header,footer,section,article,aside,nav,hgroup,address,figure,figcaption,menu,details{ display:block; }
+table { border-collapse:collapse; border-spacing:0; }
+button,input{ cursor:pointer; border: none;background-color: none; }
+/*修改输入框placeholder文字默认颜色 v4*/
+input::input-placeholder,textarea::input-placeholder {color: #999;}
+input,textarea{color: #333;color: #999\9;}
+/*去除Chrome等浏览器文本框默认发光边框*/
+input,button,select,textarea{outline:none}
+/*去除IE10+浏览器文本框后面的小叉叉*/
+input::clear,input::reveal,input::-ms-clear,input::-ms-reveal{display: none;}
+/*禁止多行文本框textarea拖拽*/
+textarea {resize: none;}
+img{ vertical-align:middle; display:inline-block; border:none;max-width: 100%;height: auto; -ms-interpolation-mode: bicubic;}
+em,i,b { font-style:normal; font-weight:normal; }
+ol,ul { list-style:none; }
+li{ vertical-align: middle; }
+h1,h2,h3,h4,h5,h6 { font-size:100%; font-weight:normal; }
+/*v4 除去a IE点击虚线*/
+a,area,button{outline: none;text-decoration:none;transition: all 0.3s;color: #333;}
+a:active,area:active,button:active {blr:expression_r(this.onFocus=this.blur());}
+a:focus,area:focus,button:focus,input:focus{ outline:0; }
+
+a:hover,a:focus,a:active{color:#75c5f0;text-decoration:none;}
+.fullPage{ width: 100%;}
+.page{ width: 1200px; margin-right: auto; margin-left: auto;min-width: 1200px; }
+.wrap{ overflow: hidden; }
+.auto { margin-right: auto; margin-left: auto; }
+/*字体，颜色*/
+/*谷歌浏览器支持小于12px的字体*/
+.shrink{-webkit-transform:scale(0.8);-o-transform:scale(1); display:inline-block}
+.f12{ font-size:12px; }
+.f13{ font-size:13px; }
+.f14{ font-size:14px; }
+.f16{ font-size:16px; }
+.f18{ font-size:18px; }
+.f20{ font-size:20px; }
+.f22{ font-size:22px; }
+.f24{ font-size:24px; }
+.fb{ font-weight:bold; }
+.fn{ font-weight:normal; }
+.t2{ text-indent:2em; }
+.hiddenText {text-indent: 100%;white-space: nowrap;overflow: hidden;}
+/*定位*/
+.tl{ text-align:left; }
+.tc{ text-align:center; }
+.tr{ text-align: right; }
+.fl{ float:left; _display:inline; }
+.fr{float:right; _display:inline;}
+.vm{ vertical-align: middle; }
+.pr{ position:relative; }
+.pa{ position:absolute; }
+.hidden{ visibility:hidden; }
+.none{ display:none; }
+.block{ display:block; }
+.inlineBlock{ display: inline-block;}
+.centerWrap{position: relative;}
+.centerWrap .center{ position: absolute; left: 0; top: 0; right: 0; bottom:0; margin: auto;} /*高度必须设置*/
+/*新版清除浮动*/
+.clearfix:before,
+.clearfix:after { content: ""; display: table; }
+.clearfix:after { clear: both; }
+.clearfix{ *zoom:1; }   /*IE6、7 Hack*/
+/*实现这页脚永远固定在页面的底部 v2*/
+
+html,
+body{ height: 100%; margin:0; padding:0; }
+#container { min-height: 100%; height: auto !important; height: 100%; margin: 0 auto -100px; /*margin-bottom的负值等于footer高度*/}
+.push,
+#footer { clear:both; height:100px;}
+
+/*实现inline-block布局及兼容性解决和两端对齐布局 v2*/
+/*实现inline-block布局及兼容性解决*/
+
+.outer {
+font-size:0;/* 所有浏览器 */
+*word-spacing:-1px;/* IE6、7 */
+}
+.outer:after{
+  content:'';
+  display: inline-block;
+  vertical-align:middle;
+  height: 100%;
+  width: 0;
+}
+/* 
+ 说明：
+ 1.IE中要实现块内单行两端对齐需要使用其私有属性text-align-last:justify配合，text-align-last 要生效，必须先定义text-align 为justify
+ 2.line-height:0 解决标准浏览器容器底部多余的空白
+*/
+.justify{
+     text-align:justify;
+     text-justify:distribute-all-lines;/*ie6-8*/
+     text-align-last:justify;
+     -moz-text-align-last: auto;
+     font-size:0;/* 所有浏览器 */
+     *word-spacing:-1px;/* IE6、7 */
+}
+
+.inner,
+.innerTop,
+.innerBottom,
+.justify .inner,
+.justify .innerTop,
+.justify .innerBottom,
+.outer .inner,
+.outer .innerTop,
+.outer .innerBottom{
+    font-size: 14px;
+    letter-spacing: normal;
+    word-spacing: normal;
+    display: inline-block;
+    *display:inline;
+    *zoom:1;
+    text-align: left;
+}
+.justify .inner,
+.outer .inner,
+.inner{vertical-align:middle;}
+.justify .innerTop,
+.outer .innerTop,
+.innerTop{vertical-align:top;}
+.justify .innerBottom,
+.outer .innerBottom,
+.innerBottom{vertical-align:bottom;}
+/* .inner:after{
+    display: inline-block;
+    content: '';
+    width: 0;
+    height: 100%;
+    vertical-align: middle;
+} */
+/*
+ 说明：
+ 模块使用[换行符]或[空格符]后，webkit浏览器中会引起最后一个模块有多余空白，使用font-size:0可清除该空格
+*/
+@media all and (-webkit-min-device-pixel-ratio:0){
+    .justify{
+         font-size:0;
+    }
+}
+@media screen and (-webkit-min-device-pixel-ratio:0){
+    /* firefox 中 letter-spacing 会导致脱离普通流的元素水平位移 */
+    .justify{
+    letter-spacing:-5px;/* Safari 等不支持字体大小为 0 的浏览器, N 根据父级字体调节*/
+    }
+}
+ /* 
+ 说明：
+ 1.text-align-last:justify 目前只有IE支持，标准浏览器需要使用 .justify:after 伪类模拟类似效果 
+ 2.opera浏览器需要添加 vertical-align:top 才能完全解决底部多余的空白
+ */
+.justify:after{
+     display:inline-block;
+     overflow:hidden;
+     width:100%;
+     height:0;
+     content:'';
+     vertical-align:middle;
+}
+
+/*表单重置*/
+textarea,
+input[type="text"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="color"] {
+  padding: 10px 5px 8px;
+  height: auto;
+}
+/*去除Chrome等浏览器文本框默认发光边框*/
+input,button,select,textarea{outline:none}
+/*去除IE10+浏览器文本框后面的小叉叉*/
+input::clear,input::reveal{display: none;}
+/*禁止多行文本框textarea拖拽*/
+textarea {resize: none;}
+/*低版本ie兼容css3*/
+.pie{behavior: url(../../Scripts/usercenter/PIE.htc);}
+.iebg{-ms-behavior: url(../../Scripts/usercenter/backgroundsize.min.htc);}
+/*圆点开始 v2*/
+.dot{
+  position: relative;
+}
+.dot:before{
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    content: '';
+}
+/*圆点结束*/
+/*三角样式开始 v2*/
+.triangle{
+    position: relative;
+}
+.triangle:after{
+    position: absolute;
+    content: '';
+    height: 0;
+    width: 0;
+    border-width: 10px;
+    border-style: dashed  dashed   solid dashed;
+    border-color:  transparent  transparent #fff  transparent ;
+}
+/*三角样式结束*/

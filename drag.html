@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <title>插件</title>
+    <link href="css/global.css" rel="stylesheet" type="text/css">
+    <link href="css/drags.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="js/drags.js"></script>
+</head>
+
+<body>
+    
+    <div class="drag" style="width:100px;height:100px;background:#f00;position:absolute;"></div>
+    <div class="drag" style="width:100px;height:100px;background:#f00;position:absolute;"></div>
+    <div class="drag" style="width:100px;height:100px;background:#f00;position:absolute;"></div>
+    <script>
+        $(function(){
+            $(".drag").drag();
+            
+        })
+    </script>
+
+    
+</body>
+
+</html>

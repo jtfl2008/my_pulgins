@@ -1,0 +1,28 @@
+@charset "UTF-8";
+/**
+ * 
+ * @authors 董江龙 (279110347@qq.com)
+ * @date    2016-05-30 
+ * @version 1.0.0
+ */
+/* 选项卡 */
+.tabs{
+    
+}
+.tabs .tab_meun{
+    float: left;
+    width: 100px;
+    line-height: 30px;
+    text-align: center;
+    cursor: pointer;
+}
+.tabs .tab_meun.current{
+    background: #f00;
+}
+.tab_cons .tab_con{
+    width: 300px;
+    height: 150px;
+}
+.tab_cons .tab_con + .tab_con{
+    display: none;
+}
