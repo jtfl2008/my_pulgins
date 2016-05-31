@@ -29,6 +29,15 @@
     float: left;
 }
 
+.slider.fade .slider_items {
+    position: relative;
+}
+
+.slider.fade .slider_items li {
+    position: absolute; 
+    top: 0; 
+    left: 0;
+}
 .slider .navs {
     position: absolute;
     bottom: 20px;
