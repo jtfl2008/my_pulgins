@@ -1,6 +1,5 @@
 // 轮播图
-;
-(function($) {
+;(function($) {
     $.fn.slider = function(options) {
         return this.each(function() {
             var defaults = {
@@ -9,6 +8,7 @@
                 speed: 300,
                 arrows: true,
                 nav: true,
+                fade: false
             }
             var opts = $.extend({}, defaults, options),
                 _this = $(this),
@@ -35,36 +35,58 @@
                 width: len * slider_item_w
             });
 
-            function change(index) {
-                var curLeft = -index * slider_item_w;
-                slider_items.stop().animate({
-                    left: curLeft
-                }, opts.speed);
+            // fade
+            if (opts.fade) {
+                _this.addClass("fade");
 
+                function change_fade(index) {
+                    slider_item.eq(index).fadeIn().siblings().fadeOut();
+                    change_nav(index);
+                };
+            } else {
+            // slider
+                function change_slider(index) {
+                    var curLeft = -index * slider_item_w;
+                    slider_items.stop().animate({
+                        left: curLeft
+                    }, opts.speed);
+
+                    change_nav(index);
+
+                    _this.addClass('active').siblings().removeClass('active');
+                };
+                _this.find('.prev').on("click", function() {
+                    index--;
+                    if (index == -1) {
+                        index = len - 1;
+                    }
+
+                    change_slider(index);
+                });
+                _this.find('.next').on("click", function() {
+                    index++;
+                    if (index == len) {
+                        index = 0;
+                    }
+
+                    change_slider(index);
+                });
+            }
+            // 导航
+            function  change_nav(index){
                 _this.find('.navs li').eq(index).addClass('active').siblings().removeClass('active');
-            };
-
-            _this.find('.prev').on("click", function() {
-                index--;
-                if (index == -1) {
-                    index = len - 1;
-                }
-
-                change(index);
-            });
-            _this.find('.next').on("click", function() {
-                index++;
-                if (index == len) {
-                    index = 0;
-                }
-
-                change(index);
-            });
+            }
             _this.on(opts.event, ".navs li", function() {
+
                 var _index = $(this).index();
                 index = _index;
-                change(index);
-            })
+                if (opts.fade) {
+                    change_fade(index);
+                } else {
+                    change_slider(index);
+                }
+            });
+            // 触发事件
             _this.hover(function() {
                 clearInterval(timer);
             }, function() {
@@ -73,7 +95,11 @@
                     if (index == len) {
                         index = 0;
                     }
-                    change(index);
+                    if (opts.fade) {
+                        change_fade(index);
+                    } else {
+                        change_slider(index);
+                    }
                 }, opts.autoplaySpeed)
             }).trigger("mouseleave");
         })
