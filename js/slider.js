@@ -59,8 +59,6 @@
                     }, opts.speed);
 
                     change_nav(index);
-
-                    _this.addClass('active').siblings().removeClass('active');
                 };
                 
             }
@@ -70,7 +68,7 @@
                     index = len - 1;
                 }
 
-                change_slider(index);
+                opts.fade ? change_fade(index) : change_slider(index)
             });
             _this.find('.next').on("click", function() {
                 index++;
@@ -78,7 +76,7 @@
                     index = 0;
                 }
 
-                change_slider(index);
+                opts.fade ? change_fade(index) : change_slider(index)
             });
             // 导航
             function  change_nav(index){
